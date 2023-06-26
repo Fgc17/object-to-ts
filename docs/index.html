@@ -100,8 +100,10 @@
         return obj;
       }
 
-      const date = new Date(value);
-      if (date instanceof Date && !isNaN(date)) return "date";
+      if (typeof value === "string") {
+        const date = new Date(value);
+        if (date instanceof Date && !isNaN(date)) return "Date";
+      }
 
       return typeof value;
     };
